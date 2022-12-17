@@ -6,33 +6,29 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 14:55:38 by mflury            #+#    #+#             */
-/*   Updated: 2022/12/16 17:35:44 by mflury           ###   ########.fr       */
+/*   Updated: 2022/12/17 02:54:32 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_format(va_list args, const char type)
+static int	ft_format(va_list args, const char type)
 {
 	int	strlen;
 
 	strlen = 0;
 	if (type == 'c')
-		strlen += ft_putchar(va_arg(args, int));
+		strlen += ft_print_c(va_arg(args, int));
 	else if (type == 's')
-		strlen += ft_putstr(va_arg(args, char *));
+		strlen += ft_print_s(va_arg(args, char *));
 	else if (type == 'p')
-		strlen += ft_putptr
-		else if (type == 'd')
-
-	else if (type == 'i')
-
+		strlen += ft_print_p(va_arg(args, unsigned long long));
+	else if (type == ('d' || 'i'))
+		strlen += ft_print_di(va_arg(args, int));
 	else if (type == 'u')
-
-	else if (type == 'x')
-		
-	else if (type == 'X')
-
+		strlen += ft_print_u(va_arg(args, unsigned int));
+	else if (type == ('x' || 'X'))
+		strlen += ft_print_x(va_arg(args, unsigned int), type);
 	else if (type == '%')
 		ft_putchar('%');
 }
@@ -54,9 +50,11 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-		strlen += ft_putchar(str[i]);
+		strlen += ft_print_c(str[i]);
 		i++;
 	}
+	va_end(args);
+	return (strlen);
 }
 
 int	main()
@@ -65,6 +63,6 @@ int	main()
 	char	s1[] = "je";
 	int		d1 = 3;
 
-	ft_printf("%s m'appele M%cke, le nombre %d", s1, c1, d1);
+	ft_printf("%s m'appel M%cke, le nombre %d", s1, c1, d1);
 	return (0);
 }
