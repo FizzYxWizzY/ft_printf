@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-static int	ft_print_c(char c)
+int	ft_print_c(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-static int ft_print_s(char *str)
+int ft_print_s(char *str)
 {
 	int	i;
 
@@ -30,7 +30,12 @@ static int ft_print_s(char *str)
 	return (i);
 }
 
-static int ft_print_p()
+int ft_print_p(unintptr_t addr)
 {
+	// int	count;
 
+	// count = 0;
+	// count +=ft_print_s("0x");
+	// count += ft_ptr(addr);
+	return (0);
 }

@@ -12,27 +12,37 @@
 
 #include "ft_printf.h"
 
-static int	ft_print_di()
+int	ft_print_di(int n)
 {
-
+	return (0);
 }
 
-static int	ft_print_u()
+int	ft_print_u(unsigned int n)
 {
-
+	return (0);
 }
 
-static int	ft_print_x(unsigned int n, const char type)
+static int	ft_hex(unsigned int n, char *hexset)
 {
-	char	*hex;
-	int		count
+	int	count;
+
+	count = 0;
+	if (n >= 16)
+	{
+		count += ft_hex(n / 16, hexset);
+		count += ft_hex(n % 16, hexset);
+	}
+	else
+		count += ft_print_c(hexset[n]);
+	return (count);
+}
+
+int	ft_print_x(unsigned int n, const char type)
+{
+	char	*hexset;
 	if (type == 'x')
-	{
-		hex = "0123456789abcdef";
-	}
+		hexset = "0123456789abcdef";
 	if (type == 'X')
-	{
-		hex = "0123456789ABCDEF";
-	}
-	
+		hexset = "0123456789ABCDEF";
+	return (ft_hex(n, hexset));
 }
