@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 14:55:38 by mflury            #+#    #+#             */
-/*   Updated: 2022/12/18 23:43:10 by mflury           ###   ########.fr       */
+/*   Updated: 2022/12/19 13:45:13 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_format(va_list args, const char type)
 	else if (type == 's')
 		strlen += ft_print_s(va_arg(args, char *));
 	else if (type == 'p')
-		strlen += ft_print_p(va_arg(args, unsigned long long));
+		strlen += ft_print_p(va_arg(args, uintptr_t));
 	else if (type == ('d' || 'i'))
 		strlen += ft_print_di(va_arg(args, int));
 	else if (type == 'u')

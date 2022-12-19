@@ -30,7 +30,7 @@ int ft_print_s(char *str)
 	return (i);
 }
 
-int ft_print_p(unintptr_t addr)
+int ft_print_p(uintptr_t addr)
 {
 	// int	count;
 
