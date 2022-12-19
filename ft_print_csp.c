@@ -18,11 +18,16 @@ int	ft_print_c(char c)
 	return (1);
 }
 
-int ft_print_s(char *str)
+int	ft_print_s(char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
+	if (!str)
+	{
+		ft_print_s("(null)");
+		return (6);
+	}
 	while (str[i])
 	{
 		ft_print_c(str[i++]);
@@ -30,12 +35,29 @@ int ft_print_s(char *str)
 	return (i);
 }
 
-int ft_print_p(uintptr_t addr)
+static int	ft_ptr(uintptr_t n)
 {
-	// int	count;
+	char	*hexset;
+	int		count;
 
-	// count = 0;
-	// count +=ft_print_s("0x");
-	// count += ft_ptr(addr);
-	return (0);
+	hexset = "0123456789abcdef";
+	count = 0;
+	if (n >= 16)
+	{
+		count += ft_ptr(n / 16);
+		count += ft_ptr(n % 16);
+	}
+	else
+		count += ft_print_c(hexset[n]);
+	return (count);
+}
+
+int	ft_print_p(uintptr_t addr)
+{
+	int	count;
+
+	count = 0;
+	count += ft_print_s("0x");
+	count += ft_ptr(addr);
+	return (count);
 }

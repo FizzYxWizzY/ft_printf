@@ -6,7 +6,7 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 15:30:12 by mflury            #+#    #+#             */
-/*   Updated: 2022/12/19 13:45:36 by mflury           ###   ########.fr       */
+/*   Updated: 2022/12/19 17:43:54 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,12 @@
 # include <unistd.h>
 
 int	ft_printf(const char *str, ...);
+
+int	ft_print_c(char c);
+int	ft_print_s(char *str);
+int	ft_print_di(int n);
+int	ft_print_u(unsigned int n);
+int	ft_print_p(uintptr_t addr);
+int	ft_print_x(unsigned int n, const char type);
 
 #endif
