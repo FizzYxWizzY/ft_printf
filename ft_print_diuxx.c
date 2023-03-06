@@ -12,6 +12,8 @@
 
 #include "ft_printf.h"
 
+// print an int, aka ft_putnbr.
+
 static int	ft_nbr(int n)
 {
 	int	count;
@@ -38,6 +40,8 @@ static int	ft_nbr(int n)
 	return (count);
 }
 
+// print an int in base 10. 
+
 int	ft_print_di(int n)
 {
 	int	count;
@@ -46,6 +50,8 @@ int	ft_print_di(int n)
 	count += ft_nbr(n);
 	return (count);
 }
+
+// print an unsigned int in base 10.
 
 int	ft_print_u(unsigned int n)
 {
@@ -62,6 +68,8 @@ int	ft_print_u(unsigned int n)
 	return (count);
 }
 
+// print an hex value using the chosen hexset.
+
 static int	ft_hex(unsigned int n, char *hexset)
 {
 	int	count;
@@ -76,6 +84,8 @@ static int	ft_hex(unsigned int n, char *hexset)
 		count += ft_print_c(hexset[n]);
 	return (count);
 }
+
+// choose the hexset for X/x to make upper or lower letters hex.
 
 int	ft_print_x(unsigned int n, const char type)
 {

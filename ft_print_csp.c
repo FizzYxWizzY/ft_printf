@@ -12,11 +12,15 @@
 
 #include "ft_printf.h"
 
+// print a character, aka ft_putchar.
+
 int	ft_print_c(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
+
+// print a string, aka ft_putstr.
 
 int	ft_print_s(char *str)
 {
@@ -35,6 +39,8 @@ int	ft_print_s(char *str)
 	return (i);
 }
 
+// pointer address in hex (base 16).
+
 static int	ft_ptr(uintptr_t n)
 {
 	char	*hexset;
@@ -51,6 +57,14 @@ static int	ft_ptr(uintptr_t n)
 		count += ft_print_c(hexset[n]);
 	return (count);
 }
+
+// print "0x" meaning its a memory address.
+// then print the hex value.
+//
+// uintptr_t is an unsigned integer memsize-type that can 
+// safely store a pointer regardless of the platform capacity.
+// The type uintptr_t is similar to the types size_t and UINT_PTR.
+// The size of the type depends upon the data model.
 
 int	ft_print_p(uintptr_t addr)
 {

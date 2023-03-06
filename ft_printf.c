@@ -6,11 +6,13 @@
 /*   By: mflury <mflury@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 14:55:38 by mflury            #+#    #+#             */
-/*   Updated: 2022/12/19 17:43:52 by mflury           ###   ########.fr       */
+/*   Updated: 2023/03/06 11:56:05 by mflury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+// check the char after the % to choose the right way to proceed.
 
 static int	ft_format(va_list args, const char type)
 {
@@ -33,6 +35,13 @@ static int	ft_format(va_list args, const char type)
 		strlen += ft_print_c('%');
 	return (strlen);
 }
+
+// core function of printf, it takes variadic arguments 
+//  and write them using the corresponding sub-function for the type.
+//
+// "..." means variadic arguments, it could be 0, 1, 2, ...
+// va_list is the list of arguments.
+// va_start / va_end is the start/end of the use of the arguments we had.
 
 int	ft_printf(const char *str, ...)
 {
