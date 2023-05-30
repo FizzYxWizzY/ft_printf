@@ -21,10 +21,15 @@
 int	ft_printf(const char *str, ...);
 
 int	ft_print_c(char c);
+
 int	ft_print_s(char *str);
+
 int	ft_print_di(int n);
+
 int	ft_print_u(unsigned int n);
+
 int	ft_print_p(uintptr_t addr);
+
 int	ft_print_x(unsigned int n, const char type);
 
 #endif
